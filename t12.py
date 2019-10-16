@@ -1,6 +1,5 @@
 from t11 import Person
 
-# def __init__(self, full_name='', birthdate=''):
 
 class Employee(Person):
     def __init__(self, full_name='', birthyear='', position='', experience=None, salary=None):
@@ -21,6 +20,9 @@ class Employee(Person):
     def salary_raise(self,amount=0):
         self.salary += amount
 
+    def __str__(self):
+        return"{} {}".format(self.__class__, self.full_name)
+
 
 class ITEmployee(Employee):
     def __init__(self, full_name='', birthyear='', position='', experience=None, salary=None, skills=[]):
@@ -32,6 +34,9 @@ class ITEmployee(Employee):
 
     def add_skills(self, *skills):
         self.skills.extend(skills)
+
+    def __str__(self):
+        return"{} {}".format(self.__class__, self.full_name)
 
 
 if __name__ == '__main__':
@@ -49,3 +54,5 @@ if __name__ == '__main__':
     Igor1.add_skills('watching movies', 'python', 'poker', 'gaming')
     print(Igor1.skills)
 
+    print(Igor)
+    print(Igor1)

@@ -1,7 +1,7 @@
 class Person():
     def __init__(self, full_name='', birthyear=''):
         self.full_name = full_name
-        self.birthdate = int(birthyear)
+        self.birthyear = int(birthyear)
     def name_only(self):
         probel_index = self.full_name.find(' ')
         return self.full_name[:probel_index]
@@ -9,7 +9,9 @@ class Person():
         probel_index = self.full_name.find(' ')
         return self.full_name[probel_index+1:]
     def age_in(self,year=2019):
-        return year - self.birthdate
+        return year - self.birthyear
+    def __str__(self):
+        return"{} {}".format(self.__class__, self.full_name)
 
 
 if __name__ == '__main__':
@@ -18,6 +20,7 @@ if __name__ == '__main__':
     print(Igor.lastname_only())
     print(Igor.age_in(2050))
     print(Igor.age_in())
+    print(Igor)
 
 
 
